@@ -142,23 +142,27 @@ function draw() {
     cloudsGroup.setLifetimeEach(-1);
      
      obstaclesGroup.setVelocityXEach(0);
-     cloudsGroup.setVelocityXEach(0);    
+     cloudsGroup.setVelocityXEach(0);  
+      if(mousePressedOver(restart)) {
+      reset();
+    }
+
    }
   
  
   //stop trex from falling down
   trex.collide(invisibleGround);
   
-  if(mousePressedOver(restart)) {
-      gameState=0;
-    }
-
+ 
 
   drawSprites();
 }
 
 function reset(){
-  
+  gameState = PLAY;
+  score = 0;
+  obstaclesGroup.destroyEach();
+  cloudsGroup.destroyEach();
 
 }
 
